@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=G-41L6V1G70D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Google Tag Manager (GTM-WR52L4DL) - loads only after the visitor accepts cookies -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function hbTrack(event, params){ window.dataLayer.push(Object.assign({event: event}, params || {})); }
+  function hbLoadGTM(){
+    if (window.__hbGtmLoaded) return; window.__hbGtmLoaded = true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WR52L4DL');
+  }
+  try { if (localStorage.getItem('hb-consent') === 'yes') hbLoadGTM(); } catch(e) {}
+</script>
+<!-- End Google Tag Manager -->
+<title>HomeBite</title>
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky brand bar, warm hero with the box as hero image, occasion grid, country kitchens, builder as a sheet, cart as a side drawer */
+:root{
+  --green:#4DAF5C; --green-deep:#3B9349; --navy:#14214B;
+  --bg:#F5F8F4; --surface:#FFFFFF; --sunk:#EBF1EA;
+  --ink:#14214B; --muted:#586379; --line:#DCE4DA;
+  --wordmark:#14214B; --box-top:#FFFFFF; --box-side:#EEF2ED; --box-edge:#C9D3C8;
+  --on-accent:#FFFFFF; --shadow:0 18px 40px -22px rgba(20,33,75,.35);
+  --display:"Lexend","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --green:#5DC06C; --green-deep:#47A757; --bg:#0D1322; --surface:#151D31; --sunk:#10182A;
+  --ink:#E8EDF7; --muted:#9CA7BD; --line:#26314B; --wordmark:#E8EDF7;
+  --box-top:#E9EFE8; --box-side:#C9D4C8; --box-edge:#8D9A8C; --shadow:0 18px 40px -22px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --green:#5DC06C; --green-deep:#47A757; --bg:#0D1322; --surface:#151D31; --sunk:#10182A;
+  --ink:#E8EDF7; --muted:#9CA7BD; --line:#26314B; --wordmark:#E8EDF7;
+  --box-top:#E9EFE8; --box-side:#C9D4C8; --box-edge:#8D9A8C; --shadow:0 18px 40px -22px rgba(0,0,0,.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:38px;height:38px}
+.wordmark{font-family:var(--display);font-weight:600;font-size:1.45rem;letter-spacing:-.02em;color:var(--wordmark)}
+.wordmark b{color:var(--green);font-weight:600}
+nav.links{display:flex;gap:22px;margin-left:auto}
+nav.links a{color:var(--muted);text-decoration:none;font-weight:500}
+nav.links a:hover{color:var(--ink)}
+.cart-btn{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-weight:600}
+.cart-btn .count{background:var(--green);color:var(--on-accent);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+@media (max-width:720px){nav.links{display:none}.cart-btn{margin-left:auto}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 22px;font-weight:600;border:0;text-decoration:none;transition:transform .15s,background .15s}
+.btn.primary{background:var(--green);color:var(--on-accent)}
+.btn.primary:hover{background:var(--green-deep)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--green)}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(2.3rem,5.2vw,4rem);font-weight:600}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:34em;margin-top:18px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;color:var(--muted);font-size:.92rem}
+.hero .facts strong{display:block;font-family:var(--display);color:var(--ink);font-size:1.25rem;font-weight:600}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:100%}
+.hero-art .disc{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--green) 28%,var(--surface)),color-mix(in srgb,var(--green) 10%,var(--bg)) 70%)}
+.hero-art svg.big{position:absolute;inset:8% 6% 4%;width:88%;height:auto;filter:drop-shadow(0 30px 30px rgba(20,33,75,.18))}
+.hero-art .tag{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:.88rem;display:flex;gap:10px;align-items:center}
+.hero-art .tag b{font-family:var(--display);font-weight:600}
+.hero-art .t1{top:8%;left:0}.hero-art .t2{bottom:10%;right:0}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px}.hero-art{max-width:440px;width:100%;margin:0 auto}}
+
+/* sections */
+section.block .wrap{padding-block:64px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600;margin-top:6px}
+.sec-head p{color:var(--muted);max-width:30em}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.step .n{font-family:var(--display);font-weight:700;color:var(--green);font-size:.9rem}
+.step h3{font-size:1.15rem;font-weight:600;margin:8px 0 6px}
+.step p{color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* occasion cards */
+.occ-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.occ-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.occ-grid{grid-template-columns:1fr}}
+.occ{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s;text-align:left;padding:0}
+.occ:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.occ .art{background:color-mix(in srgb,var(--occ) 16%,var(--surface));padding:18px 18px 6px;display:grid;place-items:center}
+.occ .art svg{width:72%;max-width:220px;height:auto}
+.occ .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.occ h3{font-size:1.2rem;font-weight:600}
+.occ p{color:var(--muted);font-size:.95rem;flex:1}
+.occ .foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:.92rem}
+.occ .foot span{color:var(--muted)}
+.occ .foot b{color:var(--green-deep);font-weight:600}
+
+/* nations */
+.nat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.nat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.nat .top{display:flex;align-items:center;gap:10px}
+.nat .top h3{font-size:1.1rem;font-weight:600}
+.nat .top small{margin-left:auto;color:var(--muted);font-size:.82rem}
+.nat ul{margin:0;padding:0;list-style:none;color:var(--muted);font-size:.92rem;display:grid;gap:3px;flex:1}
+.nat ul li::before{content:"·";color:var(--green);font-weight:700;margin-right:6px}
+.nat button{align-self:flex-start;background:none;border:0;color:var(--green-deep);font-weight:600;padding:4px 0}
+.flag{width:30px;height:20px;border-radius:4px;flex:none;box-shadow:0 0 0 1px var(--line)}
+
+/* band */
+.band{background:var(--navy);color:#EAF0FA}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding-block:56px}
+.band h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:#fff}
+.band p{color:#B9C4DB;margin-top:10px}
+.band .card-demo{background:#FBFCFA;color:#14214B;border-radius:6px;padding:26px 28px;transform:rotate(-2deg);box-shadow:0 20px 40px -20px rgba(0,0,0,.6);font-family:var(--display);max-width:420px;justify-self:center;width:100%}
+.band .card-demo small{display:block;font-family:var(--body);color:#5B6478;margin-bottom:10px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:28px;color:var(--muted);font-size:.9rem}
+
+/* overlay shared */
+.scrim{position:fixed;inset:0;background:rgba(10,16,32,.5);z-index:40}
+/* builder sheet */
+.sheet{position:fixed;z-index:50;inset:max(24px,env(safe-area-inset-top,0px)) 0 0 0;margin:0 auto;max-width:1080px;background:var(--bg);border-radius:24px 24px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+@media (min-width:900px){.sheet{inset:4vh 24px;border-radius:24px}}
+.sheet-head{display:flex;align-items:center;gap:12px;padding:14px max(16px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);background:var(--surface)}
+.sheet-head h2{font-size:1.15rem;font-weight:600}
+.x{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font-size:1.2rem}
+.sheet-body{flex:1;overflow:auto;display:grid;grid-template-columns:380px 1fr;min-height:0}
+@media (max-width:900px){.sheet-body{grid-template-columns:1fr}}
+.preview{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:18px;background:color-mix(in srgb,var(--occ,var(--green)) 10%,var(--bg))}
+@media (min-width:901px){.preview{position:sticky;top:0;align-self:start;min-height:100%}}
+@media (max-width:900px){.preview{border-right:0;border-bottom:1px solid var(--line)}}
+.preview svg.pbox{width:70%;max-width:240px;margin:0 auto;display:block}
+.notecard{background:#FBFCFA;color:#14214B;border-radius:6px;padding:18px 20px;box-shadow:0 12px 26px -16px rgba(0,0,0,.45);transform:rotate(-1.2deg);min-height:120px}
+.notecard .to{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#5B6478}
+.notecard .msg{font-family:var(--display);font-size:1rem;margin-top:8px;white-space:pre-wrap;overflow-wrap:anywhere}
+.notecard .msg.empty{color:#9AA3B5}
+.summary{font-size:.92rem;color:var(--muted);display:grid;gap:4px}
+.summary b{color:var(--ink);font-weight:600}
+.config{padding:24px max(20px,env(safe-area-inset-right,0px)) 24px 24px;display:grid;gap:30px;min-width:0}
+.field h3{font-size:1rem;font-weight:600;display:flex;gap:10px;align-items:baseline}
+.field h3 .k{font-size:.78rem;color:var(--green-deep);font-weight:700}
+.field h3 .hint{margin-left:auto;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted)}
+.field > .sub{color:var(--muted);font-size:.9rem;margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-weight:500;font-size:.93rem}
+.chip .flag{width:22px;height:15px;border-radius:3px}
+.chip[aria-pressed="true"]{border-color:var(--green);background:color-mix(in srgb,var(--green) 12%,var(--surface));font-weight:600}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.size{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;text-align:left}
+.size b{display:block;font-family:var(--display);font-weight:600}
+.size span{font-size:.85rem;color:var(--muted)}
+.size[aria-pressed="true"]{border-color:var(--green);background:color-mix(in srgb,var(--green) 10%,var(--surface))}
+@media (max-width:480px){.sizes{grid-template-columns:1fr}}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+@media (max-width:620px){.products{grid-template-columns:1fr}}
+.prod{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:12px 14px;text-align:left;width:100%;min-width:0}
+.prod .tick{flex:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line);display:grid;place-items:center;margin-top:2px;color:var(--on-accent)}
+.prod[aria-pressed="true"]{border-color:var(--green)}
+.prod[aria-pressed="true"] .tick{background:var(--green);border-color:var(--green)}
+.prod .info{flex:1;min-width:0}
+.prod .info b{display:block;font-weight:600;font-size:.95rem}
+.prod .info span{display:block;color:var(--muted);font-size:.84rem}
+.prod .price{font-weight:600;font-variant-numeric:tabular-nums;font-size:.92rem;white-space:nowrap}
+.prod-h{grid-column:1/-1;font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.ptag{font-style:normal;font-family:var(--body);font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;background:var(--sunk);color:var(--green-deep);vertical-align:2px;margin-left:4px;white-space:nowrap}
+.prod[disabled]{opacity:.45;cursor:not-allowed}
+.who{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.inputs{display:grid;gap:10px;margin-top:12px}
+label.lbl{font-size:.85rem;font-weight:600;display:grid;gap:6px}
+input[type=text],textarea{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;width:100%}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--green)}
+textarea{min-height:110px;resize:vertical}
+.check{display:flex;gap:10px;align-items:center;font-size:.92rem}
+.check input{width:18px;height:18px;accent-color:var(--green)}
+.counter{text-align:right;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.sheet-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px max(20px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));border-top:1px solid var(--line);background:var(--surface)}
+.sheet-foot .tot{font-family:var(--display);font-size:1.4rem;font-weight:600;font-variant-numeric:tabular-nums}
+.sheet-foot .tot small{display:block;font-family:var(--body);font-size:.8rem;font-weight:500;color:var(--muted)}
+.sheet-foot .btn{margin-left:auto}
+
+/* cart drawer */
+.drawer{position:fixed;z-index:50;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--surface);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.2);padding-top:env(safe-area-inset-top,0px)}
+.drawer .sheet-head{border-radius:0}
+.cart-list{flex:1;overflow:auto;padding:16px max(20px,env(safe-area-inset-right,0px)) 16px 20px;display:grid;gap:14px;align-content:start}
+.line{border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:start}
+.line svg{width:64px;height:auto}
+.line h4{margin:0;font-family:var(--display);font-weight:600;font-size:1rem}
+.line p{font-size:.85rem;color:var(--muted)}
+.line .r{text-align:right;display:grid;gap:6px;justify-items:end}
+.line .r b{font-variant-numeric:tabular-nums}
+.line .rm{background:none;border:0;color:var(--muted);font-size:.82rem;text-decoration:underline;padding:0}
+.empty-cart{text-align:center;color:var(--muted);padding:40px 10px;display:grid;gap:14px;justify-items:center}
+.empty-cart svg{width:64px;height:64px;opacity:.9}
+.totals{border-top:1px solid var(--line);padding:16px max(20px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) 20px;display:grid;gap:6px;font-variant-numeric:tabular-nums}
+.totals .row{display:flex;justify-content:space-between;font-size:.95rem;color:var(--muted)}
+.totals .row.big{color:var(--ink);font-family:var(--display);font-weight:600;font-size:1.2rem;margin-top:4px}
+.totals .note{font-size:.84rem;color:var(--muted);background:var(--sunk);border-radius:10px;padding:10px 12px;margin-top:8px}
+.totals .btn{margin-top:10px;width:100%}
+
+.toast{position:fixed;z-index:60;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:600;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.consent{position:fixed;z-index:70;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:560px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow);display:grid;gap:12px}
+.consent p{font-size:.95rem;color:var(--ink)}
+.consent-btns{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.consent .btn{padding:10px 18px}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR52L4DL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <mask id="hb-bite" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <circle cx="58.5" cy="40" r="4.2" fill="#000"/>
+      <circle cx="58.5" cy="47.5" r="4.2" fill="#000"/>
+      <circle cx="56" cy="54.5" r="3.6" fill="#000"/>
+    </mask>
+    <clipPath id="hb-right"><rect x="32" y="0" width="32" height="64"/></clipPath>
+    <symbol id="hb-mark" viewBox="0 0 64 64">
+      <g mask="url(#hb-bite)">
+        <path id="hb-house" d="M14 9h6v6.2L32 5.5l21.6 18q2.4 2 2.4 5.2V52q0 6-6 6H14q-6 0-6-6V28.7q0-3.2 2.4-5.2L14 20.5Z" fill="#4DAF5C"/>
+        <path d="M14 9h6v6.2L32 5.5l21.6 18q2.4 2 2.4 5.2V52q0 6-6 6H14q-6 0-6-6V28.7q0-3.2 2.4-5.2L14 20.5Z" fill="#3B9349" clip-path="url(#hb-right)"/>
+      </g>
+      <path d="M32 47c-9-6.2-13.5-10.6-13.5-15.6a6.6 6.6 0 0 1 13.5-2.4a6.6 6.6 0 0 1 13.5 2.4c0 5-4.5 9.4-13.5 15.6z" fill="#fff"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="HomeBite home">
+      <svg viewBox="0 0 64 64"><use href="#hb-mark"/></svg>
+      <span class="wordmark">Home<b>Bite</b></span>
+    </a>
+    <nav class="links">
+      <a href="#occasions">Occasions</a>
+      <a href="#kitchens">Countries</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Open cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>
+      Cart <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Boxes from home, from all over Europe</div>
+        <h1 style="margin-top:14px">A taste of home, <em>packed with love.</em></h1>
+        <p class="lead">Pick a country, fill a box with the snacks you grew up with, and add a handwritten-style note. Send it to yourself on a homesick day, or to someone who needs a little home right now.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#occasions">Build a box</a>
+          <a class="btn ghost" href="#kitchens">Browse countries</a>
+        </div>
+        <div class="facts">
+          <div><strong>9</strong>countries</div>
+          <div><strong id="prodCount">0</strong>products from home</div>
+          <div><strong>Free</strong>EU shipping over €50</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="disc"></div>
+        <svg class="big" id="heroBox" viewBox="0 0 200 150"></svg>
+        <div class="tag t1"><svg class="flag" id="heroFlag1" viewBox="0 0 30 20"></svg><span><b>Austria</b> · Frittatensuppe, Almdudler</span></div>
+        <div class="tag t2"><svg class="flag" id="heroFlag2" viewBox="0 0 30 20"></svg><span><b>France</b> · Calissons, madeleines</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">How it works</div><h2>Three steps to a box from home</h2></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">Step 1</div><h3>Choose the occasion</h3><p>Birthday, exam season, a cold that won't quit. Each occasion gets its own box design and card.</p></div>
+        <div class="step"><div class="n">Step 2</div><h3>Fill it from one country</h3><p>Pick a country and choose up to 10 products. The typical ones for your occasion come first. Every product is sourced from producers in that country.</p></div>
+        <div class="step"><div class="n">Step 3</div><h3>Add your note and send</h3><p>Write a personal note we print on a card, then ship it to yourself or straight to them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="occasions" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Shop by occasion</div><h2>A box for every moment</h2></div>
+        <p>Every box is built by you. Open one to choose the country, the snacks and the message.</p>
+      </div>
+      <div class="occ-grid" id="occGrid"></div>
+    </div>
+  </section>
+
+  <section class="block" id="kitchens">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Our kitchens</div><h2>Nine countries, one box at a time</h2></div>
+        <p>Each box comes from a single country, with the cakes, soups and remedies people there actually reach for on each occasion.</p>
+      </div>
+      <div class="nat-grid" id="natGrid"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" style="color:#7FD18B">The personal note</div>
+        <h2 style="margin-top:8px">Your words, printed on a card on top of the snacks</h2>
+        <p>Up to 300 characters. It's the first thing they see when they open the lid. Sending a gift? We leave the prices off the packing slip.</p>
+      </div>
+      <div class="card-demo"><small>For Lena</small>Good luck on Thursday! Eat the chocolate first, then go show them what you know. Proud of you. — Mama</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg viewBox="0 0 64 64" style="width:28px;height:28px"><use href="#hb-mark"/></svg><span class="wordmark" style="font-size:1.1rem">Home<b>Bite</b></span></a>
+    <span>Ships within the EU in 2–4 working days · © 2026 HomeBite</span>
+  </div>
+</footer>
+
+<!-- builder -->
+<div class="scrim" id="bScrim" hidden></div>
+<div class="sheet" id="builder" role="dialog" aria-modal="true" aria-labelledby="bTitle" hidden>
+  <div class="sheet-head"><h2 id="bTitle">Build your box</h2><button class="x" id="bClose" aria-label="Close">×</button></div>
+  <div class="sheet-body">
+    <aside class="preview" id="bPreview">
+      <svg class="pbox" id="pBox" viewBox="0 0 200 150"></svg>
+      <div class="notecard"><div class="to" id="pTo">For you</div><div class="msg" id="pMsg"></div></div>
+      <div class="summary" id="pSummary"></div>
+    </aside>
+    <div class="config">
+      <div class="field"><h3><span class="k">1</span>Occasion</h3><div class="chips" id="fOcc"></div></div>
+      <div class="field"><h3><span class="k">2</span>Country</h3><div class="sub">All products in a box come from one country.</div><div class="chips" id="fNat"></div></div>
+      <div class="field"><h3><span class="k">3</span>Box size</h3><div class="sizes" id="fSize"></div></div>
+      <div class="field"><h3><span class="k">4</span>Products <span class="hint" id="fCount"></span></h3><div class="products" id="fProd"></div></div>
+      <div class="field"><h3><span class="k">5</span>Who is it for?</h3>
+        <div class="who" id="fWho">
+          <button class="chip" data-who="me" aria-pressed="false">For me</button>
+          <button class="chip" data-who="gift" aria-pressed="false">For someone else</button>
+        </div>
+        <div class="inputs" id="giftFields">
+          <label class="lbl" for="rName">Recipient's name<input type="text" id="rName" maxlength="40" placeholder="e.g. Lena"></label>
+          <label class="check"><input type="checkbox" id="hidePrices" checked> Leave prices off the packing slip</label>
+        </div>
+      </div>
+      <div class="field"><h3><span class="k">6</span>Personal note</h3><div class="sub">Printed on a card that sits on top of the snacks.</div>
+        <div class="inputs"><textarea id="note" maxlength="300" aria-label="Personal note"></textarea><div class="counter" id="noteCount">0 / 300</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sheet-foot">
+    <div class="tot" id="bTotal">€0.00<small>incl. box, packaging and printed card</small></div>
+    <button class="btn primary" id="addCart">Add to cart</button>
+  </div>
+</div>
+
+<!-- cart -->
+<div class="scrim" id="cScrim" hidden></div>
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cTitle" hidden>
+  <div class="sheet-head"><h2 id="cTitle">Your cart</h2><button class="x" id="cClose" aria-label="Close cart">×</button></div>
+  <div class="cart-list" id="cartList"></div>
+  <div class="totals" id="cartTotals"></div>
+</aside>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const fmt = new Intl.NumberFormat('en-IE',{style:'currency',currency:'EUR'});
+const ICONS = {
+  cake:'M4 21h16M5 21v-7h14v7M5 17.5c2.3 1.4 4.7 1.4 7 0s4.7-1.4 7 0M8 14v-3M12 14v-3M16 14v-3M8 7.5v.5M12 7.5v.5M16 7.5v.5',
+  book:'M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5M8 7h8M8 11h6',
+  mug:'M5 9h11v7a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM16 11h1.5a2.5 2.5 0 0 1 0 5H16M8.5 3c0 1.5 1.5 1.5 1.5 3M12.5 3c0 1.5 1.5 1.5 1.5 3',
+  snow:'M12 2v20M3.3 7l17.4 10M3.3 17l17.4-10M9 4l3 2 3-2M9 20l3-2 3 2',
+  home:'M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM12 18c-2.5-1.7-3.5-2.8-3.5-4a1.75 1.75 0 0 1 3.5-.5 1.75 1.75 0 0 1 3.5.5c0 1.2-1 2.3-3.5 4z',
+  star:'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z'
+};
+const OCCASIONS = [
+  {id:'birthday',name:'Birthday',color:'#E5774A',icon:'cake',nat:'it',desc:'Birthday treats from the place they call home, with confetti in the lid.',ph:'Happy birthday! A little taste of home so you can celebrate properly, wherever you are.'},
+  {id:'exams',name:'Exam Season',color:'#3E6FD6',icon:'book',nat:'ch',desc:'Brain food for late nights in the library. Crunchy, sweet and easy to share.',ph:'You\'ve got this! Snacks for the long study nights. Good luck on your exams.'},
+  {id:'getwell',name:'Get Well Soon',color:'#2FA394',icon:'mug',nat:'at',desc:'Warming teas and gentle comfort food for when someone is stuck in bed.',ph:'Sorry you\'re feeling rough. Make some tea, rest up and get well soon.'},
+  {id:'holidays',name:'Holidays',color:'#C6434C',icon:'snow',nat:'pl',desc:'Festive biscuits and sweets for the holidays you can\'t spend at home.',ph:'Happy holidays! Wish we could be at the same table this year.'},
+  {id:'homesick',name:'Homesick',color:'#4DAF5C',icon:'home',nat:'gr',desc:'For the first weeks abroad, when you\'d trade anything for a familiar flavour.',ph:'Thinking of you. Here\'s a bit of home until you can visit.'},
+  {id:'congrats',name:'Congratulations',color:'#D49A12',icon:'star',nat:'fr',desc:'New job, graduation, new flat. Celebrate the big wins with a full box.',ph:'Congratulations! So proud of you. Celebrate with these.'}
+];
+const P=(name,desc,size,price,tag)=>({name,desc,size,price,tag});
+const RX="Pharmacy", A18="18+";
+const NATIONS = [
+  {id:"at",name:"Austria",flag:{type:"h",c:["#ED2939","#FFFFFF","#ED2939"]},
+   items:[P("Haribo","Goldbären fruit gummies",200,2.50),P("Mozartkugeln","Salzburg marzipan and nougat pralines",200,7.90),P("Mountain cheese crisps","Baked Bergkäse snacks",80,4.50),P("Pumpkin seed oil","Styrian, cold-pressed","250 ml",9.90)],
+   occ:{
+    birthday:[P("Mini Sachertorte","Chocolate apricot cake",250,11.90),P("Gugelhupf","Marble bundt cake",400,8.90)],
+    exams:[P("Red Bull","Energy drink, can","250 ml",1.90),P("Hazelnut wafers","Classic Viennese layer wafers",300,3.90)],
+    getwell:[P("Frittatensuppe","Beef broth with pancake strips, in a glass jar","400 ml",5.90),P("Neocitran","Hot lemon cold and flu drink","10 sachets",12.90,RX),P("Alpine herb drops","Herbal throat candies",100,3.50),P("Kamillentee","Chamomile tea","20 bags",2.50)],
+    holidays:[P("Vanillekipferl","Vanilla crescent cookies",200,5.90),P("Linzer cookies","Redcurrant jam sandwiches",220,5.50),P("Punsch syrup","Christmas market punch, alcohol-free","500 ml",6.90)],
+    homesick:[P("Soda Zitron","Sparkling water with lemon, can","330 ml",1.90),P("Almdudler","Alpine herb lemonade","500 ml",1.90)],
+    congrats:[P("Schlumberger Sekt","Austrian sparkling wine","75 cl",14.90,A18),P("Zotter chocolate","Styrian bean-to-bar chocolate",70,4.90)]}},
+  {id:"de",name:"Germany",flag:{type:"h",c:["#000000","#DD0000","#FFCE00"]},
+   items:[P("Haribo","The Goldbären from Bonn",200,2.50),P("Pretzel sticks","Salted baked Salzstangen",250,2.50),P("Sweet mustard","Bavarian Weißwurst mustard",250,3.50),P("Liquorice wheels","Soft Lakritz snails",200,2.90),P("Lübecker Marzipan","Almond marzipan in dark chocolate",100,4.90)],
+   occ:{
+    birthday:[P("Marmorkuchen","Marble cake",400,6.90),P("Leibniz Butterkeks","Butter biscuits",200,2.50)],
+    exams:[P("Studentenfutter","Trail mix, literally \"student food\"",200,3.90),P("Club-Mate","Yerba mate soda","500 ml",2.50),P("Ritter Sport","Square milk chocolate",100,1.90)],
+    getwell:[P("Hühnersuppe","Chicken noodle soup","500 ml jar",4.90),P("Aspirin Complex","Cold relief granules","10 sachets",11.90,RX),P("Em-eukal","Eucalyptus throat drops",75,2.50)],
+    holidays:[P("Dresdner Christstollen","Christmas stollen",500,12.90),P("Nürnberger Lebkuchen","Spiced gingerbread on wafer",200,6.90),P("Spekulatius","Spiced shortcrust biscuits",200,3.90)],
+    homesick:[P("Apfelschorle","Sparkling apple juice, can","330 ml",1.90),P("East Frisian tea","Strong black tea blend",250,5.90)],
+    congrats:[P("Rotkäppchen Sekt","German sparkling wine","75 cl",6.90,A18),P("Merci","Assorted chocolates that say thank you",250,6.90)]}},
+  {id:"ch",name:"Switzerland",flag:{type:"ch"},
+   items:[P("Toblerone","Milk chocolate with honey and almond nougat",100,2.90),P("Basler Läckerli","Honey spice biscuits from Basel",200,6.90),P("Cailler chocolate","Milk chocolate from Broc",100,3.50)],
+   occ:{
+    birthday:[P("Rüeblitorte","Aargau carrot and almond cake",400,12.90),P("Ragusa","Hazelnut praline chocolate bar","4 pack",4.90)],
+    exams:[P("Ovomaltine","Malt drink powder, the Swiss study classic",500,7.90),P("Kägi fret","Chocolate-coated wafers",125,3.90)],
+    getwell:[P("Bündner Gerstensuppe","Grisons barley soup","500 ml jar",6.90),P("Dafalgan 500 mg","Paracetamol tablets","16 tablets",4.90,RX),P("Ricola","Swiss herb drops",50,2.90)],
+    holidays:[P("Zimtsterne","Cinnamon star cookies",200,6.90),P("Mailänderli","Butter cookies",200,5.90)],
+    homesick:[P("Rivella","Sparkling whey drink","500 ml",2.20),P("Aromat","Knorr all-purpose seasoning",90,3.50)],
+    congrats:[P("Mauler","Swiss sparkling wine from Neuchâtel","75 cl",22.90,A18),P("Cailler pralines","Assorted praline box",200,12.90)]}},
+  {id:"it",name:"Italy",flag:{type:"v",c:["#009246","#FFFFFF","#CE2B37"]},
+   items:[P("Cantucci","Almond biscuits from Prato",200,5.90),P("Amaretti morbidi","Soft apricot-kernel cookies",150,4.90),P("Gianduja chocolate","Piedmont hazelnut chocolate",100,4.50),P("Taralli","Olive oil crackers from Puglia",250,3.90),P("Pesto genovese","Basil pesto from Liguria",190,4.90),P("Lemon candies","Amalfi lemon hard candies",150,3.50)],
+   occ:{
+    birthday:[P("Torta caprese","Chocolate almond cake from Capri",400,12.90),P("Baci Perugina","Hazelnut chocolates with love notes inside",150,5.90)],
+    exams:[P("Pocket Coffee","Chocolates filled with liquid espresso","5 pack",3.50),P("Espresso blend","Ground coffee for the moka pot",250,7.90)],
+    getwell:[P("Pastina in brodo","Chicken broth with tiny star pasta","500 ml jar",5.50),P("Tachipirina 500 mg","Paracetamol tablets","20 tablets",4.90,RX),P("Camomilla","Chamomile tea","20 bags",2.90)],
+    holidays:[P("Panettone","Milanese Christmas bread with candied fruit",750,14.90),P("Torrone","Honey and almond nougat",150,5.50)],
+    homesick:[P("Macine biscuits","Mulino Bianco cream biscuits",350,2.90),P("Pane carasau","Crisp Sardinian flatbread",250,4.50)],
+    congrats:[P("Confetti di Sulmona","Sugared almonds, red for graduations",200,6.90),P("Prosecco DOC","Sparkling wine from Veneto","75 cl",11.90,A18)]}},
+  {id:"fr",name:"France",flag:{type:"v",c:["#002654","#FFFFFF","#CE1126"]},
+   items:[P("Madeleines","Butter sponge cakes from Commercy",250,3.50),P("Fleur de sel caramels","Salted butter caramels from Brittany",150,5.90),P("Petit Beurre","Classic LU butter biscuits",200,2.50),P("Dijon mustard","Maille, original",215,2.90)],
+   occ:{
+    birthday:[P("Gâteau basque","Almond cake with pastry cream",400,12.90),P("Carambar","Chewy caramels with jokes on the wrapper",130,2.90)],
+    exams:[P("Prince biscuits","Chocolate-filled LU biscuits",300,2.90),P("Pom'Potes","Apple compote pouches","4 pack",3.50)],
+    getwell:[P("Bouillon de poulet","Chicken broth with vermicelli","500 ml jar",4.90),P("Doliprane 1000 mg","Paracetamol tablets","8 tablets",2.50,RX),P("Tilleul-menthe","Linden and mint herbal tea","20 bags",2.90)],
+    holidays:[P("Calissons d'Aix","Almond and candied melon sweets",200,9.90),P("Marrons glacés","Candied chestnuts","6 pieces",12.90)],
+    homesick:[P("Bonne Maman jam","Strawberry preserve",370,3.90),P("Orangina","Sparkling orange, can","330 ml",1.90),P("Pain d'épices","Honey spice bread from Dijon",300,4.50)],
+    congrats:[P("Champagne brut","From the Champagne region","75 cl",34.90,A18),P("Dragées de Verdun","Sugared almonds for celebrations",200,7.90)]}},
+  {id:"es",name:"Spain",flag:{type:"es"},
+   items:[P("Marcona almonds","Fried and salted",150,5.90),P("Picos","Mini breadsticks from Andalusia",250,2.90),P("Olive oil crisps","Torres, cooked in olive oil",150,3.50),P("Conguitos","Chocolate-coated peanuts",128,2.50)],
+   occ:{
+    birthday:[P("Tarta de Santiago","Galician almond cake",400,11.90),P("Sobaos pasiegos","Butter sponge cakes from Cantabria","6 pieces",5.90)],
+    exams:[P("ColaCao","Chocolate drink powder",390,4.90),P("Filipinos","Chocolate-coated biscuit rings",135,2.50)],
+    getwell:[P("Caldo de pollo","Aneto chicken broth","1 L",3.90),P("Frenadol","Cold and flu sachets","10 sachets",9.90,RX),P("Manzanilla","Chamomile tea","20 bags",2.50)],
+    holidays:[P("Turrón de Jijona","Soft almond turrón",300,7.90),P("Polvorones de Estepa","Crumbly almond shortbread",200,4.90)],
+    homesick:[P("Nocilla","Cocoa hazelnut spread",380,4.50),P("Pimentón de la Vera","Smoked paprika",75,3.90),P("Chorizo ibérico","Cured sausage",200,6.90)],
+    congrats:[P("Cava brut","Catalan sparkling wine","75 cl",9.90,A18),P("Yemas de Santa Teresa","Egg yolk sweets from Ávila","12 pieces",8.90)]}},
+  {id:"pl",name:"Poland",flag:{type:"pl"},
+   items:[P("Ptasie mleczko","Chocolate-covered marshmallows",380,5.90),P("Prince Polo","Chocolate wafer bars","4 pack",2.90),P("Krówki","Milk fudge candies",250,3.90),P("Paluszki","Salted pretzel sticks",200,1.90)],
+   occ:{
+    birthday:[P("Torcik Wedlowski","Wedel wafer torte with chocolate",250,6.90),P("Delicje","Orange jelly biscuits",147,2.50)],
+    exams:[P("Grześki","Chocolate wafers","3 pack",2.50),P("Tymbark juice","Fruit juice with a message under the cap","300 ml",1.50)],
+    getwell:[P("Rosół","Chicken broth, the Polish sick-day soup","500 ml jar",4.90),P("Gripex","Cold and flu tablets","12 tablets",6.90,RX),P("Sok malinowy","Raspberry syrup for hot tea","420 ml",4.90)],
+    holidays:[P("Pierniki toruńskie","Toruń gingerbread",200,5.90),P("Opłatek","Christmas wafers to share at Wigilia","Set of 5",2.90)],
+    homesick:[P("Barszcz czerwony","Beetroot broth concentrate","300 ml",3.50),P("Ogórki kiszone","Fermented dill pickles","900 g jar",4.90)],
+    congrats:[P("Żubrówka","Bison grass vodka","50 cl",14.90,A18),P("Wedel Jedyne","Praline selection box",290,9.90)]}},
+  {id:"ro",name:"Romania",flag:{type:"v",c:["#002B7F","#FCD116","#CE1126"]},
+   items:[P("Eugenia","Cocoa cream sandwich biscuits",36,1.20),P("Halva","Sunflower seed halva",400,4.50),P("Covrigi","Baked pretzel snacks with seeds",200,2.90),P("Socată","Elderflower sparkling drink","500 ml",3.50)],
+   occ:{
+    birthday:[P("Chec cu nucă","Walnut marble pound cake",400,6.90),P("ROM bar","Rum-flavoured chocolate bar","3 pack",3.90)],
+    exams:[P("Pufuleți","Salted corn puffs",100,1.50),P("Kandia chocolate","Romanian milk chocolate",80,1.90)],
+    getwell:[P("Ciorbă de perișoare","Sour soup with meatballs","500 ml jar",5.90),P("Ceai de tei","Linden blossom tea","20 bags",2.50),P("Fervex","Cold relief sachets","8 sachets",7.90,RX)],
+    holidays:[P("Cozonac","Sweet walnut and cocoa bread",450,9.90),P("Turtă dulce","Honey gingerbread",300,4.90)],
+    homesick:[P("Zacuscă","Roasted aubergine and pepper spread","300 g jar",4.90),P("Magiun de prune","Topoloveni plum butter",400,6.50),P("Borsec","Mineral water","500 ml",1.20)],
+    congrats:[P("Zarea sparkling wine","Romanian sparkling wine","75 cl",9.90,A18),P("Rahat","Romanian Turkish delight",300,3.90)]}},
+  {id:"gr",name:"Greece",flag:{type:"gr"},
+   items:[P("Pasteli","Sesame and honey bars","4 pack",3.50),P("Loukoumi","Rosewater delight from Syros",250,6.50),P("Mastiha gum","Chios mastic chewing gum",30,3.50),P("Paximadia","Cretan barley rusks",300,3.90)],
+   occ:{
+    birthday:[P("Karydopita","Walnut cake in syrup",400,9.90),P("Ypovrichio","Vanilla mastic spoon sweet",400,5.90)],
+    exams:[P("Lacta","Greek milk chocolate",85,1.90),P("Caprice","Cream-filled wafer rolls",115,2.90)],
+    getwell:[P("Avgolemono","Egg-lemon chicken soup","500 ml jar",5.50),P("Depon 500 mg","Paracetamol tablets","20 tablets",3.90,RX),P("Mountain tea","Sideritis from the Greek mountains",30,3.50)],
+    holidays:[P("Melomakarona","Honey walnut Christmas cookies",300,7.90),P("Kourabiedes","Almond butter shortbread in icing sugar",300,7.90)],
+    homesick:[P("Greek coffee","Loumidis Papagalos",194,3.90),P("Sour cherry spoon sweet","Vyssino glyko",450,6.90),P("Kalamata olives","In brine","300 g jar",5.90)],
+    congrats:[P("Ouzo","Anise spirit from Lesvos","20 cl",7.90,A18),P("Koufeta","Sugared almonds for celebrations",200,6.90)]}}
+];
+const TYP = {birthday:"Birthday classics",exams:"Exam fuel",getwell:"Sick-day essentials",holidays:"Holiday traditions",homesick:"Tastes of home",congrats:"For celebrating"};
+NATIONS.forEach(n=>{ n.list=[]; Object.keys(TYP).forEach(o=>(n.occ[o]||[]).forEach(it=>n.list.push({...it,o}))); n.items.forEach(it=>n.list.push({...it})); });
+const typical = (n,o) => n.list.map((it,i)=>it.o===o?i:-1).filter(i=>i>=0);
+const SIZES = [{id:'snack',name:'Snack',max:4,base:4.90},{id:'classic',name:'Classic',max:7,base:5.90},{id:'feast',name:'Feast',max:10,base:6.90}];
+const SHIP_FREE = 50, SHIP = 5.90, NOTE_MAX = 300;
+
+const $ = s => document.querySelector(s);
+const occBy = id => OCCASIONS.find(o=>o.id===id);
+const natBy = id => NATIONS.find(n=>n.id===id);
+const sizeBy = id => SIZES.find(s=>s.id===id);
+
+function flagSVG(f){
+  if(f.type==='v') return f.c.map((c,i)=>`<rect x="${i*10}" y="0" width="10" height="20" fill="${c}"/>`).join('');
+  if(f.type==='h') return f.c.map((c,i)=>`<rect x="0" y="${i*20/3}" width="30" height="${20/3+.1}" fill="${c}"/>`).join('')+(f.dot?`<circle cx="15" cy="10" r="2.2" fill="none" stroke="${f.dot}" stroke-width=".8"/>`:'');
+  if(f.type==='ch') return `<rect width="30" height="20" fill="#DA291C"/><rect x="13" y="4" width="4" height="12" fill="#fff"/><rect x="9" y="8" width="12" height="4" fill="#fff"/>`;
+  if(f.type==='es') return `<rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/>`;
+  if(f.type==='pl') return `<rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#DC143C"/>`;
+  if(f.type==='gr'){ const h=20/9; let o='<rect width="30" height="20" fill="#fff"/>'; for(let i=0;i<9;i+=2) o+=`<rect y="${i*h}" width="30" height="${h}" fill="#0D5EAF"/>`; return o+`<rect width="${5*h}" height="${5*h}" fill="#0D5EAF"/><rect x="${2*h}" width="${h}" height="${5*h}" fill="#fff"/><rect y="${2*h}" width="${5*h}" height="${h}" fill="#fff"/>`; }
+  if(f.type==='jp') return `<rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5.5" fill="#BC002D"/>`;
+  if(f.type==='tr') return `<rect width="30" height="20" fill="#E30A17"/><circle cx="12" cy="10" r="5" fill="#fff"/><circle cx="13.3" cy="10" r="4" fill="#E30A17"/><circle cx="19" cy="10" r="1.6" fill="#fff"/>`;
+  if(f.type==='kr') return `<rect width="30" height="20" fill="#fff"/><path d="M10 10a5 5 0 0 1 10 0z" fill="#CD2E3A"/><path d="M10 10a5 5 0 0 0 10 0z" fill="#0047A0"/>`;
+  return '';
+}
+function flagEl(n,cls='flag'){return `<svg class="${cls}" viewBox="0 0 30 20" aria-hidden="true">${flagSVG(n.flag)}</svg>`}
+
+function boxSVG(color, icon){
+  return `
+  <polygon points="100,28 172,54 100,80 28,54" fill="var(--box-top)" stroke="var(--box-edge)" stroke-width="1"/>
+  <polygon points="28,54 100,80 100,136 28,110" fill="var(--box-side)" stroke="var(--box-edge)" stroke-width="1"/>
+  <polygon points="100,80 172,54 172,110 100,136" fill="${color}"/>
+  <polygon points="100,80 172,54 172,64 100,90" fill="#000" opacity=".08"/>
+  <path d="M64 41 L136 67" stroke="${color}" stroke-width="7" opacity=".85"/>
+  <g transform="translate(46,76) skewY(19.8)"><use href="#hb-mark" width="34" height="34"/></g>
+  <g transform="translate(120,88) skewY(-19.8)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${ICONS[icon]}"/></svg></g>`;
+}
+
+/* ---------- landing renders ---------- */
+$('#prodCount').textContent = NATIONS.reduce((s,n)=>s+n.list.length,0);
+$('#heroBox').innerHTML = boxSVG('#4DAF5C','home');
+$('#heroFlag1').innerHTML = flagSVG(natBy('at').flag);
+$('#heroFlag2').innerHTML = flagSVG(natBy('fr').flag);
+
+$('#occGrid').innerHTML = OCCASIONS.map(o=>{
+  const nn = natBy(o.nat), from = SIZES[0].base + typical(nn,o.id).map(i=>nn.list[i].price).sort((a,b)=>a-b).slice(0,4).reduce((a,b)=>a+b,0);
+  return `<button class="occ" style="--occ:${o.color}" data-occ="${o.id}" aria-label="Build a ${o.name} box">
+    <div class="art"><svg viewBox="0 0 200 150" aria-hidden="true">${boxSVG(o.color,o.icon)}</svg></div>
+    <div class="body"><h3>${o.name}</h3><p>${o.desc}</p>
+    <div class="foot"><span>From ${fmt.format(from)}</span><b>Build this box →</b></div></div></button>`;
+}).join('');
+
+$('#natGrid').innerHTML = NATIONS.map(n=>`<div class="nat">
+  <div class="top">${flagEl(n)}<h3>${n.name}</h3><small>${n.list.length} products</small></div>
+  <ul>${n.list.filter(i=>i.o==='getwell'||i.o==='birthday').slice(0,4).map(i=>`<li>${i.name}</li>`).join('')}</ul>
+  <button data-nat="${n.id}">Build a ${n.name} box →</button></div>`).join('');
+
+/* ---------- builder ---------- */
+let B = null;
+function openBuilder(occId, natId){
+  const o = occBy(occId);
+  const nat = natId || o.nat;
+  hbTrack('open_box_builder',{occasion:occId, country:natId||occBy(occId).nat});
+  B = {occ:occId, nat, size:'classic', items:new Set(typical(natBy(nat),occId).slice(0,7)), who:'gift', name:'', hide:true, note:''};
+  $('#rName').value=''; $('#hidePrices').checked=true; $('#note').value='';
+  renderBuilder();
+  $('#bScrim').hidden=false; $('#builder').hidden=false; document.body.style.overflow='hidden';
+  $('#bClose').focus();
+}
+function closeBuilder(){ $('#bScrim').hidden=true; $('#builder').hidden=true; document.body.style.overflow=''; }
+
+function boxPrice(b){
+  const n = natBy(b.nat);
+  return sizeBy(b.size).base + [...b.items].reduce((s,i)=>s+n.list[i].price,0);
+}
+function renderBuilder(){
+  const o = occBy(B.occ), n = natBy(B.nat), s = sizeBy(B.size);
+  $('#builder').style.setProperty('--occ', o.color);
+  $('#fOcc').innerHTML = OCCASIONS.map(x=>`<button class="chip" data-o="${x.id}" aria-pressed="${x.id===B.occ}">${x.name}</button>`).join('');
+  $('#fNat').innerHTML = NATIONS.map(x=>`<button class="chip" data-n="${x.id}" aria-pressed="${x.id===B.nat}">${flagEl(x)}${x.name}</button>`).join('');
+  $('#fSize').innerHTML = SIZES.map(x=>`<button class="size" data-s="${x.id}" aria-pressed="${x.id===B.size}"><b>${x.name}</b><span>Up to ${x.max} products · box ${fmt.format(x.base)}</span></button>`).join('');
+  const full = B.items.size >= s.max;
+  $('#fCount').textContent = `${B.items.size} of ${s.max} chosen`;
+  const card = ([it,i])=>{
+    const on = B.items.has(i);
+    return `<button class="prod" data-p="${i}" aria-pressed="${on}" ${!on&&full?'disabled':''}>
+      <span class="tick">${on?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>':''}</span>
+      <span class="info"><b>${it.name}${it.tag?` <em class="ptag">${it.tag}</em>`:''}</b><span>${it.desc} · ${typeof it.size==='number'?it.size+' g':it.size}</span></span>
+      <span class="price">${fmt.format(it.price)}</span></button>`;
+  };
+  const pairs = n.list.map((it,i)=>[it,i]);
+  $('#fProd').innerHTML = `<div class="prod-h">${TYP[B.occ]} from ${n.name}</div>` + pairs.filter(([it])=>it.o===B.occ).map(card).join('')
+    + `<div class="prod-h">More from ${n.name}</div>` + pairs.filter(([it])=>it.o!==B.occ).map(card).join('');
+  document.querySelectorAll('#fWho .chip').forEach(c=>c.setAttribute('aria-pressed', c.dataset.who===B.who));
+  $('#giftFields').hidden = B.who!=='gift';
+  $('#note').placeholder = o.ph;
+  $('#noteCount').textContent = `${B.note.length} / ${NOTE_MAX}`;
+  renderPreview();
+}
+function renderPreview(){
+  const o = occBy(B.occ), n = natBy(B.nat), s = sizeBy(B.size);
+  $('#pBox').innerHTML = boxSVG(o.color, o.icon);
+  $('#pTo').textContent = B.who==='gift' ? (B.name.trim() ? `For ${B.name.trim()}` : 'For someone special') : 'For you';
+  const m = $('#pMsg');
+  m.textContent = B.note.trim() || o.ph;
+  m.classList.toggle('empty', !B.note.trim());
+  const names = [...B.items].sort((a,b)=>a-b).map(i=>n.list[i].name);
+  $('#pSummary').innerHTML = `<div><b>${o.name}</b> box · ${s.name} · ${n.name}</div>
+    <div>${names.length ? names.join(', ') : 'No products chosen yet'}</div>`;
+  $('#bTotal').innerHTML = `${fmt.format(boxPrice(B))}<small>incl. box, packaging and printed card</small>`;
+  $('#addCart').disabled = B.items.size===0;
+  $('#addCart').textContent = B.items.size===0 ? 'Choose at least one product' : 'Add to cart';
+}
+
+$('#occGrid').addEventListener('click',e=>{const b=e.target.closest('[data-occ]'); if(b) openBuilder(b.dataset.occ);});
+$('#natGrid').addEventListener('click',e=>{const b=e.target.closest('[data-nat]'); if(b) openBuilder('homesick', b.dataset.nat);});
+$('#fOcc').addEventListener('click',e=>{const b=e.target.closest('[data-o]'); if(!b) return; B.occ=b.dataset.o; B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max)); renderBuilder();});
+$('#fNat').addEventListener('click',e=>{const b=e.target.closest('[data-n]'); if(!b||b.dataset.n===B.nat) return; B.nat=b.dataset.n; B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max)); renderBuilder();});
+$('#fSize').addEventListener('click',e=>{const b=e.target.closest('[data-s]'); if(!b) return; B.size=b.dataset.s;
+  const max=sizeBy(B.size).max; if(B.items.size>max) B.items=new Set([...B.items].slice(0,max)); renderBuilder();});
+$('#fProd').addEventListener('click',e=>{const b=e.target.closest('[data-p]'); if(!b||b.disabled) return; const i=+b.dataset.p;
+  B.items.has(i)?B.items.delete(i):B.items.add(i); renderBuilder(); const nb=document.querySelector(`#fProd [data-p="${i}"]`); nb&&nb.focus();});
+$('#fWho').addEventListener('click',e=>{const b=e.target.closest('[data-who]'); if(!b) return; B.who=b.dataset.who; renderBuilder();});
+$('#rName').addEventListener('input',e=>{B.name=e.target.value; renderPreview();});
+$('#hidePrices').addEventListener('change',e=>{B.hide=e.target.checked;});
+$('#note').addEventListener('input',e=>{B.note=e.target.value.slice(0,NOTE_MAX); $('#noteCount').textContent=`${B.note.length} / ${NOTE_MAX}`; renderPreview();});
+$('#bClose').addEventListener('click',closeBuilder);
+$('#bScrim').addEventListener('click',closeBuilder);
+
+/* ---------- cart ---------- */
+let cart = [];
+try{ cart = JSON.parse(localStorage.getItem('homebite-cart-v2')||'[]'); if(!Array.isArray(cart)) cart=[]; }catch(e){ cart=[]; }
+function saveCart(){ try{ localStorage.setItem('homebite-cart-v2', JSON.stringify(cart)); }catch(e){} }
+
+$('#addCart').addEventListener('click',()=>{
+  if(!B.items.size) return;
+  cart.push({occ:B.occ,nat:B.nat,size:B.size,items:[...B.items].sort((a,b)=>a-b),who:B.who,name:B.name.trim(),hide:B.hide,note:B.note.trim(),price:boxPrice(B)});
+  hbTrack('add_to_cart',{occasion:B.occ,country:B.nat,box_size:B.size,products:B.items.size,gift:B.who==='gift',has_note:!!B.note.trim(),value:Math.round(boxPrice(B)*100)/100,currency:'EUR'});
+  saveCart(); renderCart(); closeBuilder(); toast(`${occBy(B.occ).name} box added to your cart`);
+});
+function renderCart(){
+  $('#cartCount').textContent = cart.length;
+  if(!cart.length){
+    $('#cartList').innerHTML = `<div class="empty-cart"><svg viewBox="0 0 64 64"><use href="#hb-mark"/></svg><p>Your cart is empty. Pick an occasion to build your first box.</p><button class="btn primary" id="emptyShop">Shop by occasion</button></div>`;
+    $('#cartTotals').innerHTML=''; return;
+  }
+  $('#cartList').innerHTML = cart.map((c,idx)=>{
+    const o=occBy(c.occ), n=natBy(c.nat), s=sizeBy(c.size);
+    const who = c.who==='gift' ? `Gift for ${c.name||'someone special'}${c.hide?' · prices hidden':''}` : 'For me';
+    return `<div class="line"><svg viewBox="0 0 200 150" aria-hidden="true">${boxSVG(o.color,o.icon)}</svg>
+      <div style="min-width:0"><h4>${o.name} · ${n.name}</h4>
+      <p>${s.name} box · ${c.items.length} products</p><p>${who}</p>
+      ${c.note?`<p style="font-style:italic;overflow-wrap:anywhere">“${c.note.length>70?c.note.slice(0,70)+'…':c.note}”</p>`:''}</div>
+      <div class="r"><b>${fmt.format(c.price)}</b><button class="rm" data-rm="${idx}">Remove</button></div></div>`;
+  }).join('');
+  const sub = cart.reduce((s,c)=>s+c.price,0), ship = sub>=SHIP_FREE?0:SHIP;
+  $('#cartTotals').innerHTML = `<div class="row"><span>Subtotal</span><span>${fmt.format(sub)}</span></div>
+    <div class="row"><span>EU shipping</span><span>${ship?fmt.format(ship):'Free'}</span></div>
+    <div class="row big"><span>Total</span><span>${fmt.format(sub+ship)}</span></div>
+    ${ship?`<div class="note">Add ${fmt.format(SHIP_FREE-sub)} more for free shipping.</div>`:''}
+    <div id="checkoutMsg" class="note" hidden>Checkout isn't connected yet. Once a payment provider is linked, orders will go through here.</div>
+    <button class="btn primary" id="checkout">Go to checkout</button>`;
+}
+function openCart(){ hbTrack('view_cart',{boxes:cart.length}); renderCart(); $('#cScrim').hidden=false; $('#cart').hidden=false; $('#cClose').focus(); }
+function closeCart(){ $('#cScrim').hidden=true; $('#cart').hidden=true; }
+$('#openCart').addEventListener('click',openCart);
+$('#cClose').addEventListener('click',closeCart);
+$('#cScrim').addEventListener('click',closeCart);
+$('#cart').addEventListener('click',e=>{
+  const rm=e.target.closest('[data-rm]'); if(rm){cart.splice(+rm.dataset.rm,1); saveCart(); renderCart(); return;}
+  if(e.target.closest('#checkout')){ hbTrack('begin_checkout',{value:Math.round(cart.reduce((s,c)=>s+c.price,0)*100)/100,currency:'EUR',boxes:cart.length}); $('#checkoutMsg').hidden=false; return; }
+  if(e.target.closest('#emptyShop')){ closeCart(); document.getElementById('occasions').scrollIntoView({behavior:'smooth'}); }
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(!$('#builder').hidden) closeBuilder(); if(!$('#cart').hidden) closeCart(); }});
+
+let tt; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(tt); tt=setTimeout(()=>t.hidden=true,2600); }
+renderCart();
+</script>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie consent" hidden>
+  <p>We use Google Analytics cookies to see which boxes people like, so we can improve HomeBite. Is that okay?</p>
+  <div class="consent-btns"><button class="btn ghost" id="consentNo">Only necessary</button><button class="btn primary" id="consentYes">Accept</button></div>
+</div>
+<script>
+(function(){
+  var c=document.getElementById('consent'), v=null;
+  try{ v=localStorage.getItem('hb-consent'); }catch(e){}
+  if(!v) c.hidden=false;
+  function set(val){ try{ localStorage.setItem('hb-consent', val); }catch(e){} c.hidden=true; if(val==='yes') hbLoadGTM(); }
+  document.getElementById('consentYes').onclick=function(){ set('yes'); };
+  document.getElementById('consentNo').onclick=function(){ set('no'); };
+})();
+</script>
+</body>
+</html>
