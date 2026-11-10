@@ -1,29 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=G-41L6V1G70D"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Google Analytics 4 (Loads only after visitor accepts cookies) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<!-- Google Tag Manager (GTM-WR52L4DL) - loads only after the visitor accepts cookies -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function hbTrack(event, params){ window.dataLayer.push(Object.assign({event: event}, params || {})); }
+  // Maps all existing HomeBite cart and shopping events directly to GA4
+  function hbTrack(event, params){ gtag('event', event, params); }
+
   function hbLoadGTM(){
     if (window.__hbGtmLoaded) return; window.__hbGtmLoaded = true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WR52L4DL');
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-41L6V1G70D';
+    document.head.appendChild(script);
+    gtag('config', 'G-41L6V1G70D');
   }
   try { if (localStorage.getItem('hb-consent') === 'yes') hbLoadGTM(); } catch(e) {}
 </script>
-<!-- End Google Tag Manager -->
+<!-- End Google Analytics -->
+
 <title>HomeBite</title>
 <style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -241,7 +242,6 @@ textarea{min-height:110px;resize:vertical}
 </style>
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR52L4DL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <mask id="hb-bite" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
@@ -287,8 +287,8 @@ textarea{min-height:110px;resize:vertical}
         <h1 style="margin-top:14px">A taste of home, <em>packed with love.</em></h1>
         <p class="lead">Pick a country, fill a box with the snacks you grew up with, and add a handwritten-style note. Send it to yourself on a homesick day, or to someone who needs a little home right now.</p>
         <div class="ctas">
-          <a class="btn primary" href="#occasions">Build a box</a>
-          <a class="btn ghost" href="#kitchens">Browse countries</a>
+          <a class="btn primary" href="#occasions" onclick="gtag('event', 'click_build_box');">Build a box</a>
+          <a class="btn ghost" href="#kitchens" onclick="gtag('event', 'click_browse_countries');">Browse countries</a>
         </div>
         <div class="facts">
           <div><strong>9</strong>countries</div>
@@ -641,6 +641,7 @@ function saveCart(){ try{ localStorage.setItem('homebite-cart-v2', JSON.stringif
 $('#addCart').addEventListener('click',()=>{
   if(!B.items.size) return;
   cart.push({occ:B.occ,nat:B.nat,size:B.size,items:[...B.items].sort((a,b)=>a-b),who:B.who,name:B.name.trim(),hide:B.hide,note:B.note.trim(),price:boxPrice(B)});
+  // hbTrack maps cleanly to gtag() now, firing custom events whenever users add boxes to their cart
   hbTrack('add_to_cart',{occasion:B.occ,country:B.nat,box_size:B.size,products:B.items.size,gift:B.who==='gift',has_note:!!B.note.trim(),value:Math.round(boxPrice(B)*100)/100,currency:'EUR'});
   saveCart(); renderCart(); closeBuilder(); toast(`${occBy(B.occ).name} box added to your cart`);
 });
