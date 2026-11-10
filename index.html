@@ -1,30 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- Google Analytics 4 (Loads only after visitor accepts cookies) -->
+<!-- Google tag (gtag.js) - Loads immediately for reliable tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41L6V1G70D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('config', 'G-41L6V1G70D', { 'debug_mode': true });
 
-  // Maps all existing HomeBite cart and shopping events directly to GA4
-  function hbTrack(event, params){ gtag('event', event, params); }
-
-  function hbLoadGTM(){
-    if (window.__hbGtmLoaded) return; window.__hbGtmLoaded = true;
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-41L6V1G70D';
-    document.head.appendChild(script);
-    gtag('config', 'G-41L6V1G70D');
+  // Helper function that sends custom events to Google Analytics
+  function hbTrack(eventName, params){
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
   }
-  try { if (localStorage.getItem('hb-consent') === 'yes') hbLoadGTM(); } catch(e) {}
 </script>
 <!-- End Google Analytics -->
 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HomeBite</title>
 <style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -32,7 +27,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: sticky brand bar, warm hero with the box as hero image, occasion grid, country kitchens, builder as a sheet, cart as a side drawer */
 :root{
   --green:#4DAF5C; --green-deep:#3B9349; --navy:#14214B;
   --bg:#F5F8F4; --surface:#FFFFFF; --sunk:#EBF1EA;
@@ -268,9 +262,9 @@ textarea{min-height:110px;resize:vertical}
       <span class="wordmark">Home<b>Bite</b></span>
     </a>
     <nav class="links">
-      <a href="#occasions">Occasions</a>
-      <a href="#kitchens">Countries</a>
-      <a href="#how">How it works</a>
+      <a href="#occasions" onclick="hbTrack('click_nav', {section: 'occasions'});">Occasions</a>
+      <a href="#kitchens" onclick="hbTrack('click_nav', {section: 'countries'});">Countries</a>
+      <a href="#how" onclick="hbTrack('click_nav', {section: 'how_it_works'});">How it works</a>
     </nav>
     <button class="cart-btn" id="openCart" aria-label="Open cart">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>
@@ -287,8 +281,8 @@ textarea{min-height:110px;resize:vertical}
         <h1 style="margin-top:14px">A taste of home, <em>packed with love.</em></h1>
         <p class="lead">Pick a country, fill a box with the snacks you grew up with, and add a handwritten-style note. Send it to yourself on a homesick day, or to someone who needs a little home right now.</p>
         <div class="ctas">
-          <a class="btn primary" href="#occasions" onclick="gtag('event', 'click_build_box');">Build a box</a>
-          <a class="btn ghost" href="#kitchens" onclick="gtag('event', 'click_browse_countries');">Browse countries</a>
+          <a class="btn primary" href="#occasions" onclick="hbTrack('click_build_box', {location: 'hero'});">Build a box</a>
+          <a class="btn ghost" href="#kitchens" onclick="hbTrack('click_browse_countries', {location: 'hero'});">Browse countries</a>
         </div>
         <div class="facts">
           <div><strong>9</strong>countries</div>
@@ -563,10 +557,10 @@ $('#natGrid').innerHTML = NATIONS.map(n=>`<div class="nat">
 
 /* ---------- builder ---------- */
 let B = null;
-function openBuilder(occId, natId){
+function openBuilder(occId, natId, sourceSection){
   const o = occBy(occId);
   const nat = natId || o.nat;
-  hbTrack('open_box_builder',{occasion:occId, country:natId||occBy(occId).nat});
+  hbTrack('open_box_builder',{occasion:occId, country:nat, source: sourceSection || 'direct'});
   B = {occ:occId, nat, size:'classic', items:new Set(typical(natBy(nat),occId).slice(0,7)), who:'gift', name:'', hide:true, note:''};
   $('#rName').value=''; $('#hidePrices').checked=true; $('#note').value='';
   renderBuilder();
@@ -618,15 +612,64 @@ function renderPreview(){
   $('#addCart').textContent = B.items.size===0 ? 'Choose at least one product' : 'Add to cart';
 }
 
-$('#occGrid').addEventListener('click',e=>{const b=e.target.closest('[data-occ]'); if(b) openBuilder(b.dataset.occ);});
-$('#natGrid').addEventListener('click',e=>{const b=e.target.closest('[data-nat]'); if(b) openBuilder('homesick', b.dataset.nat);});
-$('#fOcc').addEventListener('click',e=>{const b=e.target.closest('[data-o]'); if(!b) return; B.occ=b.dataset.o; B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max)); renderBuilder();});
-$('#fNat').addEventListener('click',e=>{const b=e.target.closest('[data-n]'); if(!b||b.dataset.n===B.nat) return; B.nat=b.dataset.n; B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max)); renderBuilder();});
-$('#fSize').addEventListener('click',e=>{const b=e.target.closest('[data-s]'); if(!b) return; B.size=b.dataset.s;
-  const max=sizeBy(B.size).max; if(B.items.size>max) B.items=new Set([...B.items].slice(0,max)); renderBuilder();});
-$('#fProd').addEventListener('click',e=>{const b=e.target.closest('[data-p]'); if(!b||b.disabled) return; const i=+b.dataset.p;
-  B.items.has(i)?B.items.delete(i):B.items.add(i); renderBuilder(); const nb=document.querySelector(`#fProd [data-p="${i}"]`); nb&&nb.focus();});
-$('#fWho').addEventListener('click',e=>{const b=e.target.closest('[data-who]'); if(!b) return; B.who=b.dataset.who; renderBuilder();});
+$('#occGrid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-occ]');
+  if(b){
+    hbTrack('select_occasion', {occasion: b.dataset.occ, source: 'landing_grid'});
+    openBuilder(b.dataset.occ, null, 'occasion_card');
+  }
+});
+$('#natGrid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-nat]');
+  if(b){
+    hbTrack('select_country', {country: b.dataset.nat, source: 'landing_grid'});
+    openBuilder('homesick', b.dataset.nat, 'country_card');
+  }
+});
+$('#fOcc').addEventListener('click',e=>{
+  const b=e.target.closest('[data-o]');
+  if(!b) return;
+  B.occ=b.dataset.o;
+  hbTrack('select_occasion', {occasion: B.occ, source: 'builder'});
+  B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max));
+  renderBuilder();
+});
+$('#fNat').addEventListener('click',e=>{
+  const b=e.target.closest('[data-n]');
+  if(!b||b.dataset.n===B.nat) return;
+  B.nat=b.dataset.n;
+  hbTrack('select_country', {country: B.nat, source: 'builder'});
+  B.items=new Set(typical(natBy(B.nat),B.occ).slice(0,sizeBy(B.size).max));
+  renderBuilder();
+});
+$('#fSize').addEventListener('click',e=>{
+  const b=e.target.closest('[data-s]');
+  if(!b) return;
+  B.size=b.dataset.s;
+  hbTrack('select_box_size', {box_size: B.size});
+  const max=sizeBy(B.size).max;
+  if(B.items.size>max) B.items=new Set([...B.items].slice(0,max));
+  renderBuilder();
+});
+$('#fProd').addEventListener('click',e=>{
+  const b=e.target.closest('[data-p]');
+  if(!b||b.disabled) return;
+  const i=+b.dataset.p;
+  const prod = natBy(B.nat).list[i];
+  const adding = !B.items.has(i);
+  adding ? B.items.add(i) : B.items.delete(i);
+  hbTrack('select_product', {product_name: prod.name, country: B.nat, action: adding ? 'add' : 'remove'});
+  renderBuilder();
+  const nb=document.querySelector(`#fProd [data-p="${i}"]`);
+  nb&&nb.focus();
+});
+$('#fWho').addEventListener('click',e=>{
+  const b=e.target.closest('[data-who]');
+  if(!b) return;
+  B.who=b.dataset.who;
+  hbTrack('select_recipient_type', {recipient_type: B.who});
+  renderBuilder();
+});
 $('#rName').addEventListener('input',e=>{B.name=e.target.value; renderPreview();});
 $('#hidePrices').addEventListener('change',e=>{B.hide=e.target.checked;});
 $('#note').addEventListener('input',e=>{B.note=e.target.value.slice(0,NOTE_MAX); $('#noteCount').textContent=`${B.note.length} / ${NOTE_MAX}`; renderPreview();});
@@ -641,8 +684,7 @@ function saveCart(){ try{ localStorage.setItem('homebite-cart-v2', JSON.stringif
 $('#addCart').addEventListener('click',()=>{
   if(!B.items.size) return;
   cart.push({occ:B.occ,nat:B.nat,size:B.size,items:[...B.items].sort((a,b)=>a-b),who:B.who,name:B.name.trim(),hide:B.hide,note:B.note.trim(),price:boxPrice(B)});
-  // hbTrack maps cleanly to gtag() now, firing custom events whenever users add boxes to their cart
-  hbTrack('add_to_cart',{occasion:B.occ,country:B.nat,box_size:B.size,products:B.items.size,gift:B.who==='gift',has_note:!!B.note.trim(),value:Math.round(boxPrice(B)*100)/100,currency:'EUR'});
+  hbTrack('add_to_cart',{occasion:B.occ,country:B.nat,box_size:B.size,products:B.items.size,recipient_type:B.who,has_note:!!B.note.trim(),value:Math.round(boxPrice(B)*100)/100,currency:'EUR'});
   saveCart(); renderCart(); closeBuilder(); toast(`${occBy(B.occ).name} box added to your cart`);
 });
 function renderCart(){
@@ -693,7 +735,11 @@ renderCart();
   var c=document.getElementById('consent'), v=null;
   try{ v=localStorage.getItem('hb-consent'); }catch(e){}
   if(!v) c.hidden=false;
-  function set(val){ try{ localStorage.setItem('hb-consent', val); }catch(e){} c.hidden=true; if(val==='yes') hbLoadGTM(); }
+  function set(val){
+    try{ localStorage.setItem('hb-consent', val); }catch(e){}
+    c.hidden=true;
+    hbTrack('cookie_consent', {choice: val});
+  }
   document.getElementById('consentYes').onclick=function(){ set('yes'); };
   document.getElementById('consentNo').onclick=function(){ set('no'); };
 })();
